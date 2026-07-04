@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.EnterpriseAuditMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.pojo.EnterpriseAudit">
+        <id column="id" property="id"/>
+        <result column="enterprise_id" property="enterpriseId"/>
+        <result column="hr_user_id" property="hrUserId"/>
+        <result column="business_license_img" property="businessLicenseImg"/>
+        <result column="audit_status" property="auditStatus"/>
+        <result column="audit_user_id" property="auditUserId"/>
+        <result column="audit_remark" property="auditRemark"/>
+        <result column="audit_time" property="auditTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, enterprise_id, hr_user_id, business_license_img, audit_status, 
+        audit_user_id, audit_remark, audit_time, create_time, update_time
+    </sql>
+
+    <!-- 查询所有审核记录 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise_audit
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据ID查询审核记录 -->
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise_audit
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据企业ID查询审核记录 -->
+    <select id="findByEnterpriseId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise_audit
+        <where>
+            <if test="enterpriseId != null">
+                AND enterprise_id = #{enterpriseId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据HR用户ID查询审核记录 -->
+    <select id="findByHrUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise_audit
+        <where>
+            <if test="hrUserId != null">
+                AND hr_user_id = #{hrUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据审核状态查询 -->
+    <select id="findByAuditStatus" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise_audit
+        <where>
+            <if test="auditStatus != null">
+                AND audit_status = #{auditStatus}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 查询待审核记录 -->
+    <select id="findPendingAudits" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise_audit
+        WHERE audit_status = 0
+        ORDER BY create_time ASC
+    </select>
+
+    <!-- 新增审核记录 -->
+    <insert id="insert" parameterType="com.example.pojo.EnterpriseAudit" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO enterprise_audit (enterprise_id, hr_user_id, business_license_img, audit_status)
+        VALUES (#{enterpriseId}, #{hrUserId}, #{businessLicenseImg}, 0)
+    </insert>
+
+    <!-- 更新审核记录 -->
+    <update id="update" parameterType="com.example.pojo.EnterpriseAudit">
+        UPDATE enterprise_audit
+        <set>
+            <if test="auditStatus != null">audit_status = #{auditStatus},</if>
+            <if test="auditUserId != null">audit_user_id = #{auditUserId},</if>
+            <if test="auditRemark != null">audit_remark = #{auditRemark},</if>
+            <if test="auditTime != null">audit_time = #{auditTime},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 审核操作 -->
+    <update id="audit">
+        UPDATE enterprise_audit 
+        SET audit_status = #{auditStatus}, 
+            audit_user_id = #{auditUserId}, 
+            audit_remark = #{auditRemark},
+            audit_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <!-- 分页查询审核记录 -->
+    <select id="findByPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise_audit
+        <where>
+            <if test="auditStatus != null">
+                AND audit_status = #{auditStatus}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计审核记录数量 -->
+    <select id="countByStatus" resultType="int">
+        SELECT COUNT(*)
+        FROM enterprise_audit
+        <where>
+            <if test="auditStatus != null">
+                AND audit_status = #{auditStatus}
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.JobDeliverMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.pojo.JobDeliver">
+        <id column="id" property="id"/>
+        <result column="track_id" property="trackId"/>
+        <result column="job_id" property="jobId"/>
+        <result column="enterprise_id" property="enterpriseId"/>
+        <result column="student_user_id" property="studentUserId"/>
+        <result column="resume_id" property="resumeId"/>
+        <result column="deliver_time" property="deliverTime"/>
+        <result column="deliver_status" property="deliverStatus"/>
+        <result column="hr_remark" property="hrRemark"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, track_id, job_id, enterprise_id, student_user_id, resume_id, 
+        deliver_time, deliver_status, hr_remark, create_time, update_time
+    </sql>
+
+    <!-- 查询所有投递记录 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据ID查询投递记录 -->
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据岗位ID查询投递记录 -->
+    <select id="findByJobId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="jobId != null">
+                AND job_id = #{jobId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据学生用户ID查询投递记录 -->
+    <select id="findByStudentUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据企业ID查询投递记录 -->
+    <select id="findByEnterpriseId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="enterpriseId != null">
+                AND enterprise_id = #{enterpriseId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据投递状态查询 -->
+    <select id="findByDeliverStatus" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="deliverStatus != null">
+                AND deliver_status = #{deliverStatus}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据追踪ID查询投递记录 -->
+    <select id="findByTrackId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="trackId != null and trackId != ''">
+                AND track_id = #{trackId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 查询学生的特定岗位投递记录 -->
+    <select id="findByJobIdAndStudentUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="jobId != null">
+                AND job_id = #{jobId}
+            </if>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 新增投递记录 -->
+    <insert id="insert" parameterType="com.example.pojo.JobDeliver" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO job_deliver (track_id, job_id, enterprise_id, student_user_id, resume_id, deliver_status)
+        VALUES (#{trackId}, #{jobId}, #{enterpriseId}, #{studentUserId}, #{resumeId}, 0)
+    </insert>
+
+    <!-- 更新投递记录 -->
+    <update id="update" parameterType="com.example.pojo.JobDeliver">
+        UPDATE job_deliver
+        <set>
+            <if test="deliverStatus != null">deliver_status = #{deliverStatus},</if>
+            <if test="hrRemark != null">hr_remark = #{hrRemark},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 更新投递状态 -->
+    <update id="updateDeliverStatus">
+        UPDATE job_deliver 
+        SET deliver_status = #{deliverStatus}, 
+            hr_remark = #{hrRemark},
+            update_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除投递记录 -->
+    <delete id="deleteById">
+        DELETE FROM job_deliver WHERE id = #{id}
+    </delete>
+
+    <!-- 分页查询学生的投递记录 -->
+    <select id="findByStudentUserIdPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计学生的投递记录数量 -->
+    <select id="countByStudentUserId" resultType="int">
+        SELECT COUNT(*)
+        FROM job_deliver
+        <where>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 分页查询企业的投递记录 -->
+    <select id="findByEnterpriseIdPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM job_deliver
+        <where>
+            <if test="enterpriseId != null">
+                AND enterprise_id = #{enterpriseId}
+            </if>
+            <if test="jobId != null">
+                AND job_id = #{jobId}
+            </if>
+            <if test="deliverStatus != null">
+                AND deliver_status = #{deliverStatus}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计企业的投递记录数量 -->
+    <select id="countByEnterpriseId" resultType="int">
+        SELECT COUNT(*)
+        FROM job_deliver
+        <where>
+            <if test="enterpriseId != null">
+                AND enterprise_id = #{enterpriseId}
+            </if>
+            <if test="jobId != null">
+                AND job_id = #{jobId}
+            </if>
+            <if test="deliverStatus != null">
+                AND deliver_status = #{deliverStatus}
+            </if>
+        </where>
+    </select>
+
+    <!-- 统计已就业学生数（deliverStatus=4已录用 或 5已报到） -->
+    <select id="countEmployedStudents" resultType="int">
+        SELECT COUNT(DISTINCT student_user_id)
+        FROM job_deliver
+        WHERE deliver_status IN (4, 5)
+    </select>
+
+    <!-- 投递详情结果映射 -->
+    <resultMap id="DeliverDetailResultMap" type="com.example.pojo.dto.DeliverDetailDTO">
+        <id column="jd_id" property="id"/>
+        <result column="track_id" property="trackId"/>
+        <result column="job_id" property="jobId"/>
+        <result column="job_name" property="jobName"/>
+        <result column="enterprise_id" property="enterpriseId"/>
+        <result column="student_user_id" property="studentUserId"/>
+        <result column="student_name" property="studentName"/>
+        <result column="student_no" property="studentNo"/>
+        <result column="major_id" property="majorId"/>
+        <result column="major_name" property="majorName"/>
+        <result column="expect_city" property="expectCity"/>
+        <result column="expect_salary" property="expectSalary"/>
+        <result column="self_intro" property="selfIntro"/>
+        <result column="education_exp" property="educationExp"/>
+        <result column="practice_exp" property="practiceExp"/>
+        <result column="certs" property="certs"/>
+        <result column="resume_file" property="resumeFile"/>
+        <result column="deliver_status" property="deliverStatus"/>
+        <result column="hr_remark" property="hrRemark"/>
+        <result column="deliver_time" property="deliverTime"/>
+        <result column="jd_create_time" property="createTime"/>
+    </resultMap>
+
+    <!-- 分页查询教师发布岗位的投递记录 -->
+    <select id="findByTeacherUserIdPage" resultMap="DeliverDetailResultMap">
+        SELECT 
+            jd.id AS jd_id,
+            jd.track_id,
+            jd.job_id,
+            rj.job_name,
+            jd.enterprise_id,
+            jd.student_user_id,
+            su.real_name AS student_name,
+            sr.student_no,
+            sr.major_id,
+            m.major_name,
+            sr.expect_city,
+            sr.expect_salary,
+            sr.self_intro,
+            sr.education_exp,
+            sr.practice_exp,
+            sr.certs,
+            sr.resume_file,
+            jd.deliver_status,
+            jd.hr_remark,
+            jd.deliver_time,
+            jd.create_time AS jd_create_time
+        FROM job_deliver jd
+        LEFT JOIN recruit_job rj ON jd.job_id = rj.id
+        LEFT JOIN sys_user su ON jd.student_user_id = su.id
+        LEFT JOIN student_resume sr ON jd.student_user_id = sr.student_user_id
+        LEFT JOIN major m ON sr.major_id = m.id
+        <where>
+            rj.teacher_user_id = #{teacherUserId}
+            <if test="jobId != null">
+                AND jd.job_id = #{jobId}
+            </if>
+            <if test="deliverStatus != null">
+                AND jd.deliver_status = #{deliverStatus}
+            </if>
+        </where>
+        ORDER BY jd.create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计教师发布岗位的投递记录数量 -->
+    <select id="countByTeacherUserId" resultType="int">
+        SELECT COUNT(*)
+        FROM job_deliver jd
+        LEFT JOIN recruit_job rj ON jd.job_id = rj.id
+        <where>
+            rj.teacher_user_id = #{teacherUserId}
+            <if test="jobId != null">
+                AND jd.job_id = #{jobId}
+            </if>
+            <if test="deliverStatus != null">
+                AND jd.deliver_status = #{deliverStatus}
+            </if>
+        </where>
+    </select>
+
+    <!-- 分页查询企业的投递记录（联表查询学生和简历信息） -->
+    <select id="findByEnterpriseIdPageWithDetail" resultMap="DeliverDetailResultMap">
+        SELECT 
+            jd.id AS jd_id,
+            jd.track_id,
+            jd.job_id,
+            rj.job_name,
+            jd.enterprise_id,
+            jd.student_user_id,
+            su.real_name AS student_name,
+            sr.student_no,
+            sr.major_id,
+            m.major_name,
+            sr.expect_city,
+            sr.expect_salary,
+            sr.self_intro,
+            sr.education_exp,
+            sr.practice_exp,
+            sr.certs,
+            sr.resume_file,
+            jd.deliver_status,
+            jd.hr_remark,
+            jd.deliver_time,
+            jd.create_time AS jd_create_time
+        FROM job_deliver jd
+        LEFT JOIN recruit_job rj ON jd.job_id = rj.id
+        LEFT JOIN sys_user su ON jd.student_user_id = su.id
+        LEFT JOIN student_resume sr ON jd.student_user_id = sr.student_user_id
+        LEFT JOIN major m ON sr.major_id = m.id
+        <where>
+            jd.enterprise_id = #{enterpriseId}
+            <if test="jobId != null">
+                AND jd.job_id = #{jobId}
+            </if>
+            <if test="deliverStatus != null">
+                AND jd.deliver_status = #{deliverStatus}
+            </if>
+        </where>
+        ORDER BY jd.create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计薪资分布（根据岗位薪资区间） -->
+    <select id="findSalaryStats" resultType="map">
+        SELECT
+            CASE
+                WHEN rj.salary_max &lt;= 5000 THEN '5k以下'
+                WHEN rj.salary_max &lt;= 8000 THEN '5k-8k'
+                WHEN rj.salary_max &lt;= 12000 THEN '8k-12k'
+                WHEN rj.salary_max &lt;= 15000 THEN '12k-15k'
+                ELSE '15k以上'
+            END AS name,
+            COUNT(jd.id) AS value
+        FROM recruit_job rj
+        LEFT JOIN job_deliver jd ON jd.job_id = rj.id
+        WHERE rj.is_deleted = 0 AND rj.salary_max IS NOT NULL
+        GROUP BY name
+        ORDER BY value DESC
+    </select>
+
+</mapper>

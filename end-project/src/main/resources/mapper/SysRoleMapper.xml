@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.SysRoleMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.pojo.SysRole">
+        <id column="id" property="id"/>
+        <result column="role_name" property="roleName"/>
+        <result column="role_code" property="roleCode"/>
+        <result column="sort" property="sort"/>
+        <result column="remark" property="remark"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, role_name, role_code, sort, remark, create_time, update_time, is_deleted
+    </sql>
+
+    <!-- 查询所有角色 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_role
+        WHERE is_deleted = 0
+        ORDER BY sort ASC, id ASC
+    </select>
+
+    <!-- 根据ID查询角色 -->
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_role
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+            AND is_deleted = 0
+        </where>
+    </select>
+
+    <!-- 根据角色编码查询角色 -->
+    <select id="findByRoleCode" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_role
+        <where>
+            <if test="roleCode != null and roleCode != ''">
+                AND role_code = #{roleCode}
+            </if>
+            AND is_deleted = 0
+        </where>
+    </select>
+
+    <!-- 新增角色 -->
+    <insert id="insert" parameterType="com.example.pojo.SysRole" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO sys_role (role_name, role_code, sort, remark, is_deleted)
+        VALUES (#{roleName}, #{roleCode}, #{sort}, #{remark}, 0)
+    </insert>
+
+    <!-- 更新角色 -->
+    <update id="update" parameterType="com.example.pojo.SysRole">
+        UPDATE sys_role
+        <set>
+            <if test="roleName != null">role_name = #{roleName},</if>
+            <if test="roleCode != null">role_code = #{roleCode},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除角色（逻辑删除） -->
+    <update id="deleteById">
+        UPDATE sys_role SET is_deleted = 1 WHERE id = #{id}
+    </update>
+
+</mapper>

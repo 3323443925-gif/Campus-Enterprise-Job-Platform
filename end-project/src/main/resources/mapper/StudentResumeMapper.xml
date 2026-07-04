@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StudentResumeMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.pojo.StudentResume">
+        <id column="id" property="id"/>
+        <result column="student_user_id" property="studentUserId"/>
+        <result column="major_id" property="majorId"/>
+        <result column="student_no" property="studentNo"/>
+        <result column="expect_city" property="expectCity"/>
+        <result column="expect_salary" property="expectSalary"/>
+        <result column="job_status" property="jobStatus"/>
+        <result column="self_intro" property="selfIntro"/>
+        <result column="education_exp" property="educationExp"/>
+        <result column="practice_exp" property="practiceExp"/>
+        <result column="certs" property="certs"/>
+        <result column="resume_file" property="resumeFile"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, student_user_id, major_id, student_no, expect_city, expect_salary, 
+        job_status, self_intro, education_exp, practice_exp, certs, resume_file, 
+        create_time, update_time
+    </sql>
+
+    <!-- 查询所有简历 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM student_resume
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据ID查询简历 -->
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM student_resume
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据学生用户ID查询简历 -->
+    <select id="findByStudentUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM student_resume
+        <where>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据专业ID查询简历 -->
+    <select id="findByMajorId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM student_resume
+        <where>
+            <if test="majorId != null">
+                AND major_id = #{majorId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据求职状态查询 -->
+    <select id="findByJobStatus" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM student_resume
+        <where>
+            <if test="jobStatus != null">
+                AND job_status = #{jobStatus}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 新增简历 -->
+    <insert id="insert" parameterType="com.example.pojo.StudentResume" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO student_resume (student_user_id, major_id, student_no, expect_city, expect_salary, 
+                                    job_status, self_intro, education_exp, practice_exp, certs, resume_file)
+        VALUES (#{studentUserId}, #{majorId}, #{studentNo}, #{expectCity}, #{expectSalary}, 
+                #{jobStatus}, #{selfIntro}, #{educationExp}, #{practiceExp}, #{certs}, #{resumeFile})
+    </insert>
+
+    <!-- 更新简历 -->
+    <update id="update" parameterType="com.example.pojo.StudentResume">
+        UPDATE student_resume
+        <set>
+            <if test="majorId != null">major_id = #{majorId},</if>
+            <if test="studentNo != null">student_no = #{studentNo},</if>
+            <if test="expectCity != null">expect_city = #{expectCity},</if>
+            <if test="expectSalary != null">expect_salary = #{expectSalary},</if>
+            <if test="jobStatus != null">job_status = #{jobStatus},</if>
+            <if test="selfIntro != null">self_intro = #{selfIntro},</if>
+            <if test="educationExp != null">education_exp = #{educationExp},</if>
+            <if test="practiceExp != null">practice_exp = #{practiceExp},</if>
+            <if test="certs != null">certs = #{certs},</if>
+            <if test="resumeFile != null">resume_file = #{resumeFile},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除简历 -->
+    <delete id="deleteById">
+        DELETE FROM student_resume WHERE id = #{id}
+    </delete>
+
+    <!-- 更新求职状态 -->
+    <update id="updateJobStatus">
+        UPDATE student_resume SET job_status = #{jobStatus}, update_time = NOW() 
+        WHERE student_user_id = #{studentUserId}
+    </update>
+
+</mapper>

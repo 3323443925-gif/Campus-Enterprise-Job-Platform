@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.InterviewNoticeMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.pojo.InterviewNotice">
+        <id column="id" property="id"/>
+        <result column="deliver_id" property="deliverId"/>
+        <result column="job_id" property="jobId"/>
+        <result column="student_user_id" property="studentUserId"/>
+        <result column="hr_user_id" property="hrUserId"/>
+        <result column="interview_time" property="interviewTime"/>
+        <result column="interview_address" property="interviewAddress"/>
+        <result column="interview_content" property="interviewContent"/>
+        <result column="is_read" property="isRead"/>
+        <result column="interview_status" property="interviewStatus"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, deliver_id, job_id, student_user_id, hr_user_id, 
+        interview_time, interview_address, interview_content, is_read, interview_status, create_time
+    </sql>
+
+    <!-- 查询所有面试通知 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据ID查询面试通知 -->
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据投递记录ID查询面试通知 -->
+    <select id="findByDeliverId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        <where>
+            <if test="deliverId != null">
+                AND deliver_id = #{deliverId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据岗位ID查询面试通知 -->
+    <select id="findByJobId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        <where>
+            <if test="jobId != null">
+                AND job_id = #{jobId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据学生用户ID查询面试通知 -->
+    <select id="findByStudentUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        <where>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据HR用户ID查询面试通知 -->
+    <select id="findByHrUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        <where>
+            <if test="hrUserId != null">
+                AND hr_user_id = #{hrUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 查询学生的未读面试通知 -->
+    <select id="findUnreadByStudentUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        <where>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+            AND is_read = 0
+        </where>
+        ORDER BY interview_time ASC
+    </select>
+
+    <!-- 新增面试通知 -->
+    <insert id="insert" parameterType="com.example.pojo.InterviewNotice" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO interview_notice (deliver_id, job_id, student_user_id, hr_user_id, 
+                                      interview_time, interview_address, interview_content, is_read, interview_status)
+        VALUES (#{deliverId}, #{jobId}, #{studentUserId}, #{hrUserId}, 
+                #{interviewTime}, #{interviewAddress}, #{interviewContent}, 0, 0)
+    </insert>
+
+    <!-- 更新面试通知 -->
+    <update id="update" parameterType="com.example.pojo.InterviewNotice">
+        UPDATE interview_notice
+        <set>
+            <if test="interviewTime != null">interview_time = #{interviewTime},</if>
+            <if test="interviewAddress != null">interview_address = #{interviewAddress},</if>
+            <if test="interviewContent != null">interview_content = #{interviewContent},</if>
+            <if test="isRead != null">is_read = #{isRead},</if>
+            <if test="interviewStatus != null">interview_status = #{interviewStatus},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 标记为已读 -->
+    <update id="markAsRead">
+        UPDATE interview_notice SET is_read = 1 WHERE id = #{id}
+    </update>
+
+    <!-- 删除面试通知 -->
+    <delete id="deleteById">
+        DELETE FROM interview_notice WHERE id = #{id}
+    </delete>
+
+    <!-- 分页查询学生的面试通知 -->
+    <select id="findByStudentUserIdPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        <where>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计学生的面试通知数量 -->
+    <select id="countByStudentUserId" resultType="int">
+        SELECT COUNT(*)
+        FROM interview_notice
+        <where>
+            <if test="studentUserId != null">
+                AND student_user_id = #{studentUserId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 分页查询 HR 的面试通知 -->
+    <select id="findByHrUserIdPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM interview_notice
+        <where>
+            <if test="hrUserId != null">
+                AND hr_user_id = #{hrUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计 HR 的面试通知数量 -->
+    <select id="countByHrUserId" resultType="int">
+        SELECT COUNT(*)
+        FROM interview_notice
+        <where>
+            <if test="hrUserId != null">
+                AND hr_user_id = #{hrUserId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

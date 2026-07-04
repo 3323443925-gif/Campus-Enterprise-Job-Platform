@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.EnterpriseMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.pojo.Enterprise">
+        <id column="id" property="id"/>
+        <result column="company_name" property="companyName"/>
+        <result column="unified_social_code" property="unifiedSocialCode"/>
+        <result column="address" property="address"/>
+        <result column="industry" property="industry"/>
+        <result column="contact_name" property="contactName"/>
+        <result column="contact_phone" property="contactPhone"/>
+        <result column="contact_email" property="contactEmail"/>
+        <result column="cooperation_level" property="cooperationLevel"/>
+        <result column="last_recruit_time" property="lastRecruitTime"/>
+        <result column="total_recruit_count" property="totalRecruitCount"/>
+        <result column="total_employ_count" property="totalEmployCount"/>
+        <result column="is_warn" property="isWarn"/>
+        <result column="enterprise_status" property="enterpriseStatus"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, company_name, unified_social_code, address, industry, contact_name, 
+        contact_phone, contact_email, cooperation_level, last_recruit_time, 
+        total_recruit_count, total_employ_count, is_warn, enterprise_status,
+        create_user_id, create_time, update_time, is_deleted
+    </sql>
+
+    <!-- 查询所有企业 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise
+        WHERE is_deleted = 0
+        ORDER BY id ASC
+    </select>
+
+    <!-- 根据ID查询企业 -->
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+            AND is_deleted = 0
+        </where>
+    </select>
+
+    <!-- 根据企业名称模糊查询 -->
+    <select id="findByCompanyName" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise
+        <where>
+            <if test="companyName != null and companyName != ''">
+                AND company_name LIKE CONCAT('%', #{companyName}, '%')
+            </if>
+            AND is_deleted = 0
+        </where>
+        ORDER BY id ASC
+    </select>
+
+    <!-- 根据行业查询企业 -->
+    <select id="findByIndustry" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise
+        <where>
+            <if test="industry != null and industry != ''">
+                AND industry = #{industry}
+            </if>
+            AND is_deleted = 0
+        </where>
+        ORDER BY id ASC
+    </select>
+
+    <!-- 根据录入教师ID查询企业 -->
+    <select id="findByCreateUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise
+        <where>
+            <if test="createUserId != null">
+                AND create_user_id = #{createUserId}
+            </if>
+            AND is_deleted = 0
+        </where>
+        ORDER BY id ASC
+    </select>
+
+    <!-- 查询预警企业 -->
+    <select id="findWarnEnterprises" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise
+        WHERE is_warn = 1 AND is_deleted = 0
+        ORDER BY id ASC
+    </select>
+
+    <!-- 新增企业 -->
+    <insert id="insert" parameterType="com.example.pojo.Enterprise" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO enterprise (company_name, unified_social_code, address, industry, 
+                                contact_name, contact_phone, contact_email, cooperation_level, 
+                                is_warn, enterprise_status, create_user_id, is_deleted)
+        VALUES (#{companyName}, #{unifiedSocialCode}, #{address}, #{industry}, 
+                #{contactName}, #{contactPhone}, #{contactEmail}, #{cooperationLevel}, 
+                0, #{enterpriseStatus}, #{createUserId}, 0)
+    </insert>
+
+    <!-- 更新企业 -->
+    <update id="update" parameterType="com.example.pojo.Enterprise">
+        UPDATE enterprise
+        <set>
+            <if test="companyName != null">company_name = #{companyName},</if>
+            <if test="unifiedSocialCode != null">unified_social_code = #{unifiedSocialCode},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="industry != null">industry = #{industry},</if>
+            <if test="contactName != null">contact_name = #{contactName},</if>
+            <if test="contactPhone != null">contact_phone = #{contactPhone},</if>
+            <if test="contactEmail != null">contact_email = #{contactEmail},</if>
+            <if test="cooperationLevel != null">cooperation_level = #{cooperationLevel},</if>
+            <if test="lastRecruitTime != null">last_recruit_time = #{lastRecruitTime},</if>
+            <if test="isWarn != null">is_warn = #{isWarn},</if>
+            <if test="enterpriseStatus != null">enterprise_status = #{enterpriseStatus},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除企业（逻辑删除） -->
+    <update id="deleteById">
+        UPDATE enterprise SET is_deleted = 1 WHERE id = #{id}
+    </update>
+
+    <!-- 更新累计招聘数 -->
+    <update id="updateRecruitCount">
+        UPDATE enterprise SET total_recruit_count = total_recruit_count + 1 WHERE id = #{id}
+    </update>
+
+    <!-- 更新累计录用数 -->
+    <update id="updateEmployCount">
+        UPDATE enterprise SET total_employ_count = total_employ_count + 1 WHERE id = #{id}
+    </update>
+
+    <!-- 组合条件查询企业列表 -->
+    <select id="findByCondition" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM enterprise
+        <where>
+            AND is_deleted = 0
+            <if test="keyword != null and keyword != ''">
+                AND (company_name LIKE CONCAT('%', #{keyword}, '%')
+                     OR address LIKE CONCAT('%', #{keyword}, '%')
+                     OR contact_name LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+            <if test="industry != null and industry != ''">
+                AND industry = #{industry}
+            </if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+    <!-- 统计企业总数 -->
+    <select id="countTotal" resultType="int">
+        SELECT COUNT(*)
+        FROM enterprise
+        WHERE is_deleted = 0
+    </select>
+
+    <!-- 统计各行业企业数量 -->
+    <select id="findIndustryStats" resultType="map">
+        SELECT
+            industry,
+            COUNT(*) AS count
+        FROM enterprise
+        WHERE is_deleted = 0 AND industry IS NOT NULL AND industry != ''
+        GROUP BY industry
+        ORDER BY count DESC
+        LIMIT 10
+    </select>
+
+</mapper>

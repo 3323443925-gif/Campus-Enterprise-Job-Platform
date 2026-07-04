@@ -1,0 +1,15 @@
+com\example\pojo\JobDeliver.class
+com\example\pojo\SysUserRole.class
+com\example\pojo\RecruitJob.class
+com\example\pojo\InterviewInfo.class
+com\example\pojo\Enterprise.class
+com\example\pojo\EnterpriseAudit.class
+com\example\pojo\SysRole.class
+com\example\pojo\SysNotice.class
+com\example\pojo\LoginInfo.class
+com\example\pojo\InterviewNotice.class
+com\example\pojo\StudentResume.class
+com\example\pojo\Result.class
+com\example\pojo\Major.class
+com\example\pojo\dto\DeliverDetailDTO.class
+com\example\pojo\SysUser.class

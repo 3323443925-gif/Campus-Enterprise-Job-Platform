@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.RecruitJobMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.pojo.RecruitJob">
+        <id column="id" property="id"/>
+        <result column="track_id" property="trackId"/>
+        <result column="enterprise_id" property="enterpriseId"/>
+        <result column="teacher_user_id" property="teacherUserId"/>
+        <result column="job_name" property="jobName"/>
+        <result column="job_category" property="jobCategory"/>
+        <result column="salary_min" property="salaryMin"/>
+        <result column="salary_max" property="salaryMax"/>
+        <result column="work_address" property="workAddress"/>
+        <result column="education_require" property="educationRequire"/>
+        <result column="job_require" property="jobRequire"/>
+        <result column="job_desc" property="jobDesc"/>
+        <result column="recruit_num" property="recruitNum"/>
+        <result column="deadline" property="deadline"/>
+        <result column="status" property="status"/>
+        <result column="view_count" property="viewCount"/>
+        <result column="deliver_count" property="deliverCount"/>
+        <result column="hr_can_edit" property="hrCanEdit"/>
+        <result column="edit_need_audit" property="editNeedAudit"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, track_id, enterprise_id, teacher_user_id, job_name, job_category, 
+        salary_min, salary_max, work_address, education_require, job_require, 
+        job_desc, recruit_num, deadline, status, view_count, deliver_count, 
+        hr_can_edit, edit_need_audit, create_time, update_time, is_deleted
+    </sql>
+
+    <!-- 查询所有岗位 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据ID查询岗位 -->
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+            AND is_deleted = 0
+        </where>
+    </select>
+
+    <!-- 根据追踪ID查询岗位 -->
+    <select id="findByTrackId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            <if test="trackId != null and trackId != ''">
+                AND track_id = #{trackId}
+            </if>
+            AND is_deleted = 0
+        </where>
+    </select>
+
+    <!-- 根据企业ID查询岗位 -->
+    <select id="findByEnterpriseId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            <if test="enterpriseId != null">
+                AND enterprise_id = #{enterpriseId}
+            </if>
+            AND is_deleted = 0
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据教师ID查询岗位 -->
+    <select id="findByTeacherUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            <if test="teacherUserId != null">
+                AND teacher_user_id = #{teacherUserId}
+            </if>
+            AND is_deleted = 0
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据岗位状态查询 -->
+    <select id="findByStatus" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+            AND is_deleted = 0
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据岗位类别查询 -->
+    <select id="findByJobCategory" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            <if test="jobCategory != null and jobCategory != ''">
+                AND job_category = #{jobCategory}
+            </if>
+            AND is_deleted = 0
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 查询已发布岗位 -->
+    <select id="findPublishedJobs" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        WHERE status = 1 AND is_deleted = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 新增岗位 -->
+    <insert id="insert" parameterType="com.example.pojo.RecruitJob" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO recruit_job
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            track_id,
+            <if test="enterpriseId != null">enterprise_id,</if>
+            <if test="teacherUserId != null">teacher_user_id,</if>
+            job_name,
+            <if test="jobCategory != null">job_category,</if>
+            <if test="salaryMin != null">salary_min,</if>
+            <if test="salaryMax != null">salary_max,</if>
+            <if test="workAddress != null">work_address,</if>
+            <if test="educationRequire != null">education_require,</if>
+            <if test="jobRequire != null">job_require,</if>
+            <if test="jobDesc != null">job_desc,</if>
+            <if test="recruitNum != null">recruit_num,</if>
+            <if test="deadline != null">deadline,</if>
+            status,
+            <if test="hrCanEdit != null">hr_can_edit,</if>
+            <if test="editNeedAudit != null">edit_need_audit,</if>
+            is_deleted
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{trackId},
+            <if test="enterpriseId != null">#{enterpriseId},</if>
+            <if test="teacherUserId != null">#{teacherUserId},</if>
+            #{jobName},
+            <if test="jobCategory != null">#{jobCategory},</if>
+            <if test="salaryMin != null">#{salaryMin},</if>
+            <if test="salaryMax != null">#{salaryMax},</if>
+            <if test="workAddress != null">#{workAddress},</if>
+            <if test="educationRequire != null">#{educationRequire},</if>
+            <if test="jobRequire != null">#{jobRequire},</if>
+            <if test="jobDesc != null">#{jobDesc},</if>
+            <if test="recruitNum != null">#{recruitNum},</if>
+            <if test="deadline != null">#{deadline},</if>
+            #{status},
+            <if test="hrCanEdit != null">#{hrCanEdit},</if>
+            <if test="editNeedAudit != null">#{editNeedAudit},</if>
+            0
+        </trim>
+    </insert>
+
+    <!-- 更新岗位 -->
+    <update id="update" parameterType="com.example.pojo.RecruitJob">
+        UPDATE recruit_job
+        <set>
+            <if test="jobName != null">job_name = #{jobName},</if>
+            <if test="jobCategory != null">job_category = #{jobCategory},</if>
+            <if test="salaryMin != null">salary_min = #{salaryMin},</if>
+            <if test="salaryMax != null">salary_max = #{salaryMax},</if>
+            <if test="workAddress != null">work_address = #{workAddress},</if>
+            <if test="educationRequire != null">education_require = #{educationRequire},</if>
+            <if test="jobRequire != null">job_require = #{jobRequire},</if>
+            <if test="jobDesc != null">job_desc = #{jobDesc},</if>
+            <if test="recruitNum != null">recruit_num = #{recruitNum},</if>
+            <if test="deadline != null">deadline = #{deadline},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="hrCanEdit != null">hr_can_edit = #{hrCanEdit},</if>
+            <if test="editNeedAudit != null">edit_need_audit = #{editNeedAudit},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除岗位（逻辑删除） -->
+    <update id="deleteById">
+        UPDATE recruit_job SET is_deleted = 1 WHERE id = #{id}
+    </update>
+
+    <!-- 更新浏览次数 -->
+    <update id="updateViewCount">
+        UPDATE recruit_job SET view_count = view_count + 1 WHERE id = #{id}
+    </update>
+
+    <!-- 更新投递人数 -->
+    <update id="updateDeliverCount">
+        UPDATE recruit_job SET deliver_count = deliver_count + 1 WHERE id = #{id}
+    </update>
+
+    <!-- 分页查询已发布岗位 -->
+    <select id="findPublishedJobsByPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            AND status = 1
+            AND is_deleted = 0
+            <if test="salaryMin != null">
+                AND salary_max >= #{salaryMin}
+            </if>
+            <if test="salaryMax != null">
+                AND salary_min &lt;= #{salaryMax}
+            </if>
+            <if test="workAddress != null and workAddress != ''">
+                AND work_address LIKE CONCAT('%', #{workAddress}, '%')
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (job_name LIKE CONCAT('%', #{keyword}, '%')
+                     OR job_desc LIKE CONCAT('%', #{keyword}, '%')
+                     OR job_category LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计已发布岗位数量 -->
+    <select id="countPublishedJobs" resultType="int">
+        SELECT COUNT(*)
+        FROM recruit_job
+        <where>
+            AND status = 1
+            AND is_deleted = 0
+            <if test="salaryMin != null">
+                AND salary_max >= #{salaryMin}
+            </if>
+            <if test="salaryMax != null">
+                AND salary_min &lt;= #{salaryMax}
+            </if>
+            <if test="workAddress != null and workAddress != ''">
+                AND work_address LIKE CONCAT('%', #{workAddress}, '%')
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (job_name LIKE CONCAT('%', #{keyword}, '%')
+                     OR job_desc LIKE CONCAT('%', #{keyword}, '%')
+                     OR job_category LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+    </select>
+
+    <!-- 分页查询企业岗位列表 -->
+    <select id="findByEnterpriseIdPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            AND is_deleted = 0
+            <if test="enterpriseId != null">
+                AND enterprise_id = #{enterpriseId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计企业岗位数量 -->
+    <select id="countByEnterpriseId" resultType="int">
+        SELECT COUNT(*)
+        FROM recruit_job
+        <where>
+            AND is_deleted = 0
+            <if test="enterpriseId != null">
+                AND enterprise_id = #{enterpriseId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 统计所有未删除的岗位总数 -->
+    <select id="countTotalJobs" resultType="int">
+        SELECT COUNT(*)
+        FROM recruit_job
+        WHERE is_deleted = 0
+    </select>
+
+    <!-- 分页查询教师发布的岗位列表 -->
+    <select id="findByTeacherUserIdPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM recruit_job
+        <where>
+            AND is_deleted = 0
+            <if test="teacherUserId != null">
+                AND teacher_user_id = #{teacherUserId}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计教师发布的岗位数量 -->
+    <select id="countByTeacherUserId" resultType="int">
+        SELECT COUNT(*)
+        FROM recruit_job
+        <where>
+            AND is_deleted = 0
+            <if test="teacherUserId != null">
+                AND teacher_user_id = #{teacherUserId}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!-- 统计各岗位类别投递数量（热门岗位排行） -->
+    <select id="findJobCategoryStats" resultType="map">
+        SELECT
+            rj.job_category AS name,
+            COUNT(jd.id) AS value
+        FROM recruit_job rj
+        LEFT JOIN job_deliver jd ON jd.job_id = rj.id
+        WHERE rj.is_deleted = 0 AND rj.job_category IS NOT NULL AND rj.job_category != ''
+        GROUP BY rj.job_category
+        ORDER BY value DESC
+        LIMIT 10
+    </select>
+
+</mapper>

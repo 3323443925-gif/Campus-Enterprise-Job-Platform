@@ -1,0 +1,57 @@
+spring:
+  ai:
+    openai:
+      api-key: sk-51e3b8c99bdd408587e4c9c5cad1f50c
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          model: deepseek-chat
+  application:
+    name: end-project
+  
+  # ==================== 数据库配置 ====================
+  datasource:
+    url: jdbc:mysql://localhost:3306/school_employment_platform?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+
+# ==================== MyBatis配置 ====================
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+
+
+# ==================== 日志配置 ====================
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+# ==================== Spring Security配置（开发用）====================
+# spring:
+#   security:
+#     user:
+#       name: admin
+#       password: admin123
+
+# ==================== 服务器配置 ====================
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+
+aliyun:
+  oss:
+    endpoint: "https://oss-cn-beijing.aliyuncs.com"
+    bucketName: "ssfeng-java-ai"
+    region: "cn-beijing"
+

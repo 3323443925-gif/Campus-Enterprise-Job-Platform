@@ -1,0 +1,441 @@
+2026-07-03 10:34:44.839 [main] INFO  com.example.EndProjectApplication-Starting EndProjectApplication using Java 23.0.2 with PID 41664 (D:\study\Spring实训大作业\web-project-end\end-project\target\classes started by ssfeng in D:\study\Spring实训大作业\web-project-end)
+2026-07-03 10:34:44.839 [main] INFO  com.example.EndProjectApplication-No active profile set, falling back to 1 default profile: "default"
+2026-07-03 10:34:47.309 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2026-07-03 10:34:47.325 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2026-07-03 10:34:47.325 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2026-07-03 10:34:47.325 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-07-03 10:34:47.374 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring embedded WebApplicationContext
+2026-07-03 10:34:47.374 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext-Root WebApplicationContext: initialization completed in 2489 ms
+2026-07-03 10:34:48.637 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2026-07-03 10:34:48.646 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2026-07-03 10:34:48.652 [main] INFO  com.example.EndProjectApplication-Started EndProjectApplication in 4.178 seconds (process running for 4.927)
+2026-07-03 10:35:37.856 [http-nio-8080-exec-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-03 10:35:37.857 [http-nio-8080-exec-5] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2026-07-03 10:35:37.858 [http-nio-8080-exec-5] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 1 ms
+2026-07-03 10:35:37.945 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:37.949 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:37.953 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:37.951 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:37.956 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:38.025 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:38.025 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:38.029 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:38.035 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:38.040 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:38.050 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌错误
+2026-07-03 10:35:38.064 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.064 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.080 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.079 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.084 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.092 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.092 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.100 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.100 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.105 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.110 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.115 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.154 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.157 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.164 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.164 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.170 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.173 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.177 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.179 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.185 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.185 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.190 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.192 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.200 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.205 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.207 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.214 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.217 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.220 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.225 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.228 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.231 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.235 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.243 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.246 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.249 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.256 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.260 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.265 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.271 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.273 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.278 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.280 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.289 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.295 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.297 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.305 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.310 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.314 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.322 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.325 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.331 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.335 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.344 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.348 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.352 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.360 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.364 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.368 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.378 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.381 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.385 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.389 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.399 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.403 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.405 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.415 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.419 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.423 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.433 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.437 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.442 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.446 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.457 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.461 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.465 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.475 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.480 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.485 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.497 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.505 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.508 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.513 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.523 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.528 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.532 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.545 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.550 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.554 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.567 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.572 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.574 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.580 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.594 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.601 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.607 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.620 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.624 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.630 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.659 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.663 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.663 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.670 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.683 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.687 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.692 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.707 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.713 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.719 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.731 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.737 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.744 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.747 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.763 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.769 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.776 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.790 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.795 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.802 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.818 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.823 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.830 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.838 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.852 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.859 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.864 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.878 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.885 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.890 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.905 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.910 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.915 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.921 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.936 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.942 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.947 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.953 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.969 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.975 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.979 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.986 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:38.998 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.005 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.010 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.016 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.030 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.037 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.042 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.057 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.062 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.069 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.074 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.090 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.095 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.101 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.109 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.127 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.134 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.146 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.150 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.173 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.180 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.187 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.193 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.210 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.216 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.223 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.231 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.245 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.251 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.257 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.264 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.284 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.288 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.295 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.304 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.321 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.327 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.344 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.350 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.377 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.391 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.405 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.413 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.420 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.435 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.441 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.449 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.455 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.471 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.477 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.482 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.487 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.506 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.513 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.519 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.528 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.543 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.550 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.557 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.574 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.582 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.598 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.600 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.611 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.621 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.630 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.636 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.644 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.660 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.668 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.675 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.690 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.699 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.711 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.720 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.737 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.745 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.751 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.769 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.776 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.784 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.802 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.811 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.818 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.825 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.844 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.853 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.861 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.870 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.892 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.900 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.908 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.924 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.937 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.947 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.956 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.975 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.985 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:39.995 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.004 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.013 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.034 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.042 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.051 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.061 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.081 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.090 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.099 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.120 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.128 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.138 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.148 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.170 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.178 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.203 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.213 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.222 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.230 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.239 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.260 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.271 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.290 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.301 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.311 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.320 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.341 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.352 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.361 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.381 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.389 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.399 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.407 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.430 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.438 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.455 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.464 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.488 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.497 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.506 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.518 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.538 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.547 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.555 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.565 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.588 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.597 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.607 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.632 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.641 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.650 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.661 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.683 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.692 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.705 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.714 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.737 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.747 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.758 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.768 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.794 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.802 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.812 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.822 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.833 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.860 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.871 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.884 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.893 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.918 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.932 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.944 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.956 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.979 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:40.990 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.000 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.012 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.037 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.069 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.084 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.091 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.186 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.224 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.335 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.346 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:41.485 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌为空，不放行
+2026-07-03 10:35:51.036 [http-nio-8080-exec-9] INFO  com.example.controller.LoginController-登录认证SysUser(id=null, username=admin, password=123456, realName=null, userType=null, phone=null, email=null, avatar=null, majorId=null, enterpriseId=null, status=null, createTime=null, updateTime=null, isDeleted=null)
+2026-07-03 10:35:51.083 [http-nio-8080-exec-9] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2026-07-03 10:35:51.351 [http-nio-8080-exec-9] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@740e67a8
+2026-07-03 10:35:51.353 [http-nio-8080-exec-9] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2026-07-03 10:37:03.981 [http-nio-8080-exec-5] INFO  com.example.controller.LoginController-登录认证SysUser(id=null, username=admin, password=123456, realName=null, userType=null, phone=null, email=null, avatar=null, majorId=null, enterpriseId=null, status=null, createTime=null, updateTime=null, isDeleted=null)
+2026-07-03 10:37:04.004 [http-nio-8080-exec-5] INFO  com.example.service.impl.SysUserServiceImpl-登陆成功SysUser(id=1, username=admin, password=e10adc3949ba59abbe56e057f20f883e, realName=系统超级管理员, userType=admin, phone=13800000001, email=admin@school.edu.cn, avatar=/avatar/admin01.png, majorId=null, enterpriseId=null, status=1, createTime=2026-07-03T10:31:41, updateTime=2026-07-03T10:36:54, isDeleted=0)
+2026-07-03 10:37:04.004 [http-nio-8080-exec-5] INFO  com.example.controller.LoginController-用户登录成功: userId=1, userType=admin, homePath=/admin/dashboard
+2026-07-03 10:37:04.611 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:04.614 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:04.638 [http-nio-8080-exec-4] INFO  com.example.controller.NoticeController-查询消息列表成功: userId=1, page=1, pageSize=1, total=0
+2026-07-03 10:37:04.646 [http-nio-8080-exec-10] INFO  com.example.controller.StatController-查询全局就业总览成功: totalStudents=6, employedStudents=2, employmentRate=33.33%, totalJobs=6, totalEnterprises=5
+2026-07-03 10:37:14.268 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:14.275 [http-nio-8080-exec-1] INFO  com.example.controller.AdminController-查询专业列表成功: count=7
+2026-07-03 10:37:17.274 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:17.284 [http-nio-8080-exec-3] INFO  com.example.controller.AdminController-查询待审核用户列表成功: page=1, pageSize=10, total=3
+2026-07-03 10:37:19.734 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:19.762 [http-nio-8080-exec-6] INFO  com.example.controller.AdminController-查询用户分页列表成功: page=1, pageSize=10, total=16
+2026-07-03 10:37:20.701 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:20.709 [http-nio-8080-exec-2] INFO  com.example.controller.AdminController-查询待审核用户列表成功: page=1, pageSize=10, total=3
+2026-07-03 10:37:21.795 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:21.800 [http-nio-8080-exec-7] INFO  com.example.controller.AdminController-查询专业列表成功: count=7
+2026-07-03 10:37:22.650 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:22.669 [http-nio-8080-exec-8] INFO  com.example.controller.AdminController-查询审核列表成功: page=1, pageSize=10, total=5
+2026-07-03 10:37:23.952 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:23.971 [http-nio-8080-exec-9] INFO  com.example.controller.StatController-查询全局就业总览成功: totalStudents=6, employedStudents=2, employmentRate=33.33%, totalJobs=6, totalEnterprises=5
+2026-07-03 10:37:24.600 [http-nio-8080-exec-5] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:24.612 [http-nio-8080-exec-5] INFO  com.example.controller.AdminController-查询审核列表成功: page=1, pageSize=10, total=5
+2026-07-03 10:37:31.450 [http-nio-8080-exec-4] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:31.461 [http-nio-8080-exec-4] INFO  com.example.controller.StatController-查询全局就业总览成功: totalStudents=6, employedStudents=2, employmentRate=33.33%, totalJobs=6, totalEnterprises=5
+2026-07-03 10:37:35.796 [http-nio-8080-exec-10] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:35.802 [http-nio-8080-exec-10] INFO  com.example.controller.NoticeController-查询消息列表成功: userId=1, page=1, pageSize=10, total=0
+2026-07-03 10:37:36.726 [http-nio-8080-exec-1] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:36.754 [http-nio-8080-exec-1] INFO  com.example.controller.StatController-查询全局就业总览成功: totalStudents=6, employedStudents=2, employmentRate=33.33%, totalJobs=6, totalEnterprises=5
+2026-07-03 10:37:49.180 [http-nio-8080-exec-3] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:49.187 [http-nio-8080-exec-3] INFO  com.example.controller.AdminController-查询审核列表成功: page=1, pageSize=10, total=5
+2026-07-03 10:37:49.489 [http-nio-8080-exec-6] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:49.493 [http-nio-8080-exec-6] INFO  com.example.controller.AdminController-查询专业列表成功: count=7
+2026-07-03 10:37:49.823 [http-nio-8080-exec-2] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:49.833 [http-nio-8080-exec-2] INFO  com.example.controller.AdminController-查询待审核用户列表成功: page=1, pageSize=10, total=3
+2026-07-03 10:37:50.152 [http-nio-8080-exec-7] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:50.161 [http-nio-8080-exec-7] INFO  com.example.controller.AdminController-查询用户分页列表成功: page=1, pageSize=10, total=16
+2026-07-03 10:37:50.818 [http-nio-8080-exec-8] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:50.829 [http-nio-8080-exec-8] INFO  com.example.controller.StatController-查询全局就业总览成功: totalStudents=6, employedStudents=2, employmentRate=33.33%, totalJobs=6, totalEnterprises=5
+2026-07-03 10:37:53.097 [http-nio-8080-exec-9] INFO  com.example.interceptor.TokenInterceptor-令牌合法
+2026-07-03 10:37:53.100 [http-nio-8080-exec-9] INFO  com.example.controller.LoginController-用户退出登录: userId=1
+2026-07-03 10:38:54.890 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-03 10:38:54.895 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown-Graceful shutdown complete
+2026-07-03 10:38:54.899 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2026-07-03 10:38:54.906 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2026-07-03 10:57:40.455 [main] INFO  com.example.EndProjectApplication-Starting EndProjectApplication using Java 23.0.2 with PID 38020 (D:\study\Spring实训大作业\web-project-end\end-project\target\classes started by ssfeng in D:\study\Spring实训大作业\web-project-end)
+2026-07-03 10:57:40.456 [main] INFO  com.example.EndProjectApplication-No active profile set, falling back to 1 default profile: "default"
+2026-07-03 10:57:42.417 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2026-07-03 10:57:42.427 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2026-07-03 10:57:42.428 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2026-07-03 10:57:42.428 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-07-03 10:57:42.468 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring embedded WebApplicationContext
+2026-07-03 10:57:42.469 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext-Root WebApplicationContext: initialization completed in 1977 ms
+2026-07-03 10:57:43.589 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2026-07-03 10:57:43.591 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext-Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-07-03 10:57:43.600 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger-
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-07-03 10:57:43.611 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter-
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2026-07-03 10:57:51.381 [main] INFO  com.example.EndProjectApplication-Starting EndProjectApplication using Java 23.0.2 with PID 34088 (D:\study\Spring实训大作业\web-project-end\end-project\target\classes started by ssfeng in D:\study\Spring实训大作业\web-project-end)
+2026-07-03 10:57:51.383 [main] INFO  com.example.EndProjectApplication-No active profile set, falling back to 1 default profile: "default"
+2026-07-03 10:57:52.245 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2026-07-03 10:57:52.255 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2026-07-03 10:57:52.256 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2026-07-03 10:57:52.256 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-07-03 10:57:52.295 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring embedded WebApplicationContext
+2026-07-03 10:57:52.295 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext-Root WebApplicationContext: initialization completed in 877 ms
+2026-07-03 10:57:53.128 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2026-07-03 10:57:53.135 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2026-07-03 10:57:53.141 [main] INFO  com.example.EndProjectApplication-Started EndProjectApplication in 2.04 seconds (process running for 2.576)
+2026-07-03 10:58:14.976 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-03 10:58:14.982 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown-Graceful shutdown complete

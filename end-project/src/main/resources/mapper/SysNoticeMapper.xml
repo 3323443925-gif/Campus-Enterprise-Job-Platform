@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.SysNoticeMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.pojo.SysNotice">
+        <id column="id" property="id"/>
+        <result column="receive_user_id" property="receiveUserId"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="notice_type" property="noticeType"/>
+        <result column="related_id" property="relatedId"/>
+        <result column="is_read" property="isRead"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, receive_user_id, title, content, notice_type, related_id, is_read, create_time
+    </sql>
+
+    <!-- 查询所有消息 -->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_notice
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据ID查询消息 -->
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_notice
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据接收人ID查询消息 -->
+    <select id="findByReceiveUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_notice
+        <where>
+            <if test="receiveUserId != null">
+                AND receive_user_id = #{receiveUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据接收人ID查询未读消息 -->
+    <select id="findUnreadByReceiveUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_notice
+        <where>
+            <if test="receiveUserId != null">
+                AND receive_user_id = #{receiveUserId}
+            </if>
+            AND is_read = 0
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据消息类型查询 -->
+    <select id="findByNoticeType" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_notice
+        <where>
+            <if test="noticeType != null">
+                AND notice_type = #{noticeType}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 新增消息 -->
+    <insert id="insert" parameterType="com.example.pojo.SysNotice" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO sys_notice (receive_user_id, title, content, notice_type, related_id, is_read)
+        VALUES (#{receiveUserId}, #{title}, #{content}, #{noticeType}, #{relatedId}, 0)
+    </insert>
+
+    <!-- 更新消息 -->
+    <update id="update" parameterType="com.example.pojo.SysNotice">
+        UPDATE sys_notice
+        <set>
+            <if test="title != null">title = #{title},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="noticeType != null">notice_type = #{noticeType},</if>
+            <if test="relatedId != null">related_id = #{relatedId},</if>
+            <if test="isRead != null">is_read = #{isRead},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 标记消息为已读 -->
+    <update id="markAsRead">
+        UPDATE sys_notice SET is_read = 1 WHERE id = #{id}
+    </update>
+
+    <!-- 删除消息 -->
+    <delete id="deleteById">
+        DELETE FROM sys_notice WHERE id = #{id}
+    </delete>
+
+    <!-- 分页查询接收人的消息 -->
+    <select id="findByReceiveUserIdPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM sys_notice
+        <where>
+            <if test="receiveUserId != null">
+                AND receive_user_id = #{receiveUserId}
+            </if>
+            <if test="isRead != null">
+                AND is_read = #{isRead}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计接收人的消息数量 -->
+    <select id="countByReceiveUserId" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_notice
+        <where>
+            <if test="receiveUserId != null">
+                AND receive_user_id = #{receiveUserId}
+            </if>
+            <if test="isRead != null">
+                AND is_read = #{isRead}
+            </if>
+        </where>
+    </select>
+
+</mapper>

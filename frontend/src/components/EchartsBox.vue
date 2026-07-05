@@ -30,16 +30,16 @@ let chartInstance = null
 
 const initChart = () => {
   if (!chartRef.value) return
-  
+
   chartInstance = echarts.init(chartRef.value)
   updateChart()
 }
 
 const updateChart = () => {
   if (!chartInstance) return
-  
+
   let option = {}
-  
+
   if (props.type === 'bar') {
     option = {
       title: {
@@ -48,14 +48,24 @@ const updateChart = () => {
       },
       xAxis: {
         type: 'category',
-        data: props.data.xData || []
+        data: props.data.xData || [],
+        axisLabel: {
+          interval: 0,
+          rotate: 30
+        }
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
+        min: 0,
+        max: 100,
+        axisLabel: {
+          formatter: '{value}%'
+        }
       },
       series: [{
         data: props.data.seriesData || [],
-        type: 'bar'
+        type: 'bar',
+        barMinHeight: 1
       }]
     }
   } else if (props.type === 'pie') {
@@ -88,8 +98,8 @@ const updateChart = () => {
       }]
     }
   }
-  
-  chartInstance.setOption(option)
+
+  chartInstance.setOption(option, true)
 }
 
 const handleResize = () => {
@@ -112,10 +122,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div 
-    ref="chartRef" 
-    :style="{ width: width, height: height }"
-    class="echarts-box"
+  <div
+      ref="chartRef"
+      :style="{ width: width, height: height }"
+      class="echarts-box"
   ></div>
 </template>
 

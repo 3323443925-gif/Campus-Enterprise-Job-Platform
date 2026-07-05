@@ -35,7 +35,8 @@ const renderCharts = (data) => {
       tooltip: { trigger: 'axis' },
       xAxis: {
         type: 'category',
-        data: data.majorStats.map(item => item.majorName || '未知专业')
+        data: data.majorStats.map(item => item.majorName || '未知专业'),
+        axisLabel: { interval: 0, rotate: 30 }
       },
       yAxis: {
         type: 'value',
@@ -51,7 +52,7 @@ const renderCharts = (data) => {
           ])
         }
       }]
-    })
+    }, true)
   }
 
   if (data.salaryStats && Array.isArray(data.salaryStats)) {
@@ -66,7 +67,7 @@ const renderCharts = (data) => {
           value: item.value || 0
         }))
       }]
-    })
+    }, true)
   }
 
   if (data.jobStats && Array.isArray(data.jobStats)) {
@@ -90,7 +91,7 @@ const renderCharts = (data) => {
           ])
         }
       }]
-    })
+    }, true)
   }
 
   if (data.enterpriseStats && Array.isArray(data.enterpriseStats)) {
@@ -115,7 +116,7 @@ const renderCharts = (data) => {
           ])
         }
       }]
-    })
+    }, true)
   }
 }
 

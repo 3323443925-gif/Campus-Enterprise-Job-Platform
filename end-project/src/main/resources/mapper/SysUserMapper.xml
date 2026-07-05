@@ -189,25 +189,32 @@
     <!-- 查询分专业就业率统计 -->
     <select id="findMajorEmploymentStats" resultType="map">
         SELECT
-            m.id AS majorId,
-            m.major_name AS majorName,
-            COUNT(u.id) AS totalStudents,
-            IFNULL(employed.employedCount, 0) AS employedStudents,
-            CASE WHEN COUNT(u.id) > 0
-                THEN ROUND(IFNULL(employed.employedCount, 0) * 100.0 / COUNT(u.id), 2)
+            majorId,
+            majorName,
+            totalStudents,
+            employedStudents,
+            CASE WHEN totalStudents > 0
+                THEN ROUND(employedStudents * 100.0 / totalStudents, 2)
                 ELSE 0
             END AS employmentRate
-        FROM major m
-        LEFT JOIN sys_user u ON u.major_id = m.id AND u.user_type = 'student' AND u.is_deleted = 0
-        LEFT JOIN (
-            SELECT u2.major_id, COUNT(DISTINCT jd.student_user_id) AS employedCount
-            FROM job_deliver jd
-            INNER JOIN sys_user u2 ON jd.student_user_id = u2.id AND u2.is_deleted = 0
-            WHERE jd.deliver_status IN (4, 5)
-            GROUP BY u2.major_id
-        ) employed ON employed.major_id = m.id
-        WHERE m.is_deleted = 0
-        GROUP BY m.id, m.major_name, employed.employedCount
+        FROM (
+            SELECT
+                m.id AS majorId,
+                m.major_name AS majorName,
+                COUNT(u.id) AS totalStudents,
+                IFNULL(employed.employedCount, 0) AS employedStudents
+            FROM major m
+            LEFT JOIN sys_user u ON u.major_id = m.id AND u.user_type = 'student' AND u.is_deleted = 0
+            LEFT JOIN (
+                SELECT u2.major_id, COUNT(DISTINCT jd.student_user_id) AS employedCount
+                FROM job_deliver jd
+                INNER JOIN sys_user u2 ON jd.student_user_id = u2.id AND u2.is_deleted = 0
+                WHERE jd.deliver_status IN (4, 5)
+                GROUP BY u2.major_id
+            ) employed ON employed.major_id = m.id
+            WHERE m.is_deleted = 0
+            GROUP BY m.id, m.major_name, employed.employedCount
+        ) temp
         ORDER BY employmentRate DESC
     </select>
 
